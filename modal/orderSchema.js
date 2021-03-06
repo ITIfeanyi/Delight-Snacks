@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
-    itemOrder: {
+    snack: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Snack",
+      required: true,
     },
     qty: {
       type: Number,
-      required: true,
+      default: 1,
     },
   },
   { timestamps: true }

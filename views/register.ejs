@@ -1,0 +1,46 @@
+<form>
+  <h3>Register</h3>
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" />
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" />
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" />
+  </div>
+  <p>Have an account? <a href="/login">Login</a></p>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<script>
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    try {
+      const res = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+      const data = await res.json();
+      if (data.user) {
+        location.assign("/");
+      }
+
+      console.log(data.err.password);
+      console.log(data.err.email);
+    } catch (error) {
+      console.log(error);
+    }
+  });
+</script>

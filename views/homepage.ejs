@@ -1,0 +1,63 @@
+<h2 data-ID="<%= user._id %>" class="name">hello <%= user.name %></h2>
+<p class="orderNotification"></p>
+
+<h3>Our meal</h3>
+<div>
+  <div><p>Make an order</p></div>
+  <div class="top__container">
+    <div class="snack_container">
+      <% snacks.forEach((snack) => {%>
+      <div class="mealContainer">
+        <div class="mealSubContainer">
+          <img src="/img/pizza.jpg" alt="meal" />
+          <p class="product_name"><%= snack.name %></p>
+          <p class="product_price">$<%= (snack.price).toFixed(2) %></p>
+          <% if(snack.qty < 1) {%>
+          <p class="product_qty noQty">Out of stock, check later</p>
+          <% }else{%>
+          <p class="product_qty"><%= snack.qty %> left</p>
+          <% } %>
+          <form>
+            <div>
+              <select name="qty">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+            <button
+              name="btn"
+              type="submit"
+              class="ProductBtn"
+              data-id="<%= snack._id %>"
+            >
+              Order
+            </button>
+          </form>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<script>
+  const forms = document.querySelectorAll("form");
+  const orderNotification = document.querySelector(".orderNotification");
+  const name = document.querySelector(".name").getAttribute("data-id");
+  forms.forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const snack = e.target[1].getAttribute("data-id");
+      const qty = form.qty.value;
+
+      const res = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ qty: qty, snack: snack, name: name }),
+      });
+      const data = await res.json();
+      orderNotification.textContent = `${data.item.qty} ${data.item.name} costing ${data.item.totalprice} has been booked.`;
+    });
+  });
+</script>
