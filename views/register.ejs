@@ -1,22 +1,33 @@
-<form>
-  <h3>Register</h3>
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" />
-  </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" />
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" />
-  </div>
-  <p>Have an account? <a href="/login">Login</a></p>
-  <div>
-    <button type="submit">Submit</button>
-  </div>
-</form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body></body>
+</html>
+<div class="register_container">
+  <form>
+    <h2 class="register_h2">Register</h2>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required />
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <p class="account">Have an account? <a href="/login">Login</a></p>
+    <div>
+      <button class="login_btn" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
 
 <script>
   const form = document.querySelector("form");

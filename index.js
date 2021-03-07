@@ -1,5 +1,4 @@
 const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
 const dotenv = require("dotenv");
 const path = require("path");
 const session = require("express-session");
@@ -32,8 +31,8 @@ const snacksRoutes = require("./Routes/snackRoute");
 const orderRoutes = require("./Routes/orderRoute");
 const loginRoute = require("./Routes/login");
 const registerRoute = require("./Routes/register");
+const logout = require("./Routes/logout");
 
-app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 app.get("*", getUserName);
@@ -42,5 +41,6 @@ app.use("/", snacksRoutes);
 app.use("/", orderRoutes);
 app.use("/", loginRoute);
 app.use("/", registerRoute);
+app.use("/", logout);
 
 app.listen(PORT, () => console.log(`App running on port ${PORT}`));

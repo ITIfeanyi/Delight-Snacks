@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  `mongodb://localhost:27017/delight-snacks`,
+  `mongodb+srv://delight_snacks:W1iepkstLci1rnrS@cluster0.ecyvm.mongodb.net/delight-snacks?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

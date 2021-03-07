@@ -11,13 +11,15 @@ module.exports.post_orders = async (req, res) => {
       qty,
     });
     const newSnack = await Snack.findById(snack);
-    newSnack.qty - qty;
-    await newSnack.save();
-    console.log(newSnack.qty);
     const user = await User.findById(`${name}`);
     await user.orders.push(`${newOrders._id}`);
     await user.save();
+
+    newSnack.qty = newSnack.qty - qty;
+    await newSnack.save();
+
     await newOrders.save();
+
     res.status(201).json({
       item: {
         name: newSnack.name,

@@ -7,15 +7,14 @@ const checkVerification = (req, res, next) => {
   if (token) {
     jwt.verify(token, `${process.env.jwtSecret}`, (err, decodedToken) => {
       if (err) {
-        console.log(err.message);
-        res.redirect("/login");
+        next();
       } else {
         next();
         return decodedToken.id;
       }
     });
   } else {
-    res.redirect("/login");
+    next();
   }
 };
 
@@ -26,7 +25,9 @@ const getUserName = async (req, res, next) => {
       if (err) {
         next();
         res.locals.user = null;
-        res.locals.snacks = null;
+        let snacks = await Snack.find({});
+
+        res.locals.snacks = snacks;
       } else {
         let user = await User.findById(Decodeduser.id);
         let snacks = await Snack.find({});
@@ -39,32 +40,12 @@ const getUserName = async (req, res, next) => {
     });
   } else {
     res.locals.user = null;
-    res.locals.snacks = null;
+    let snacks = await Snack.find({});
+
+    res.locals.snacks = snacks;
 
     next();
   }
 };
-
-// const getSnacks = async (req, res, next) => {
-//   const token = req.cookies.jwt;
-//   if (token) {
-//     jwt.verify(token, `${process.env.jwtSecret}`, async (err, Decodeduser) => {
-//       if (err) {
-//         next();
-//         res.locals.snacks = null;
-//       } else {
-//         let snacks = await User.find({ Snacks });
-
-//         res.locals.user = user;
-//         res.locals.snacks = snacks;
-
-//         next();
-//       }
-//     });
-//   } else {
-//     res.locals.user = null;
-//     next();
-//   }
-// };
 
 module.exports = { checkVerification, getUserName };
