@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "14.8.0"
+  },
   "name": "delight-snacks",
   "version": "1.0.0",
   "description": "",
