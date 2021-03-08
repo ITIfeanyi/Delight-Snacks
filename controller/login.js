@@ -7,7 +7,7 @@ const handleError = (err) => {
     error.email = "Incorrect email";
   }
   if (err.message === "Incorrect password") {
-    error["password"] = "Incorrect email";
+    error.password = "Incorrect password";
   }
   return error;
 };

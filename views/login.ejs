@@ -12,12 +12,12 @@
 
         <div class="input_tile">
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" id="email" required />
           <p class="incorrect email"></p>
         </div>
         <div class="input_tile">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" required />
           <p class="incorrect password"></p>
         </div>
         <button class="login_btn" type="submit">Submit</button>
@@ -48,6 +48,7 @@
             location.assign("/");
           }
           if (data.errors) {
+            console.log(data.errors);
             emailIncorrect.textContent = data.errors.email;
             passwordIncorrect.textContent = data.errors.password;
           }

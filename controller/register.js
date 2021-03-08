@@ -27,17 +27,22 @@ module.exports.register_post = async (req, res) => {
       email,
       password,
     });
-    await newUser.save();
-    const token = await jwt.sign(
-      { id: newUser._id },
-      `${process.env.jwtSecret}`,
-      { expiresIn: "3d" }
-    );
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 3,
+    await newUser.save(async (err, savedUser) => {
+      if (err) {
+        throw Error(err.message);
+      } else {
+        const token = await jwt.sign(
+          { id: savedUser._id },
+          `${process.env.jwtSecret}`,
+          { expiresIn: "3d" }
+        );
+        res.cookie("jwt", token, {
+          httpOnly: true,
+          maxAge: 1000 * 60 * 60 * 24 * 3,
+        });
+        res.status(200).json({ user: newUser._id });
+      }
     });
-    res.status(200).json({ user: newUser._id });
   } catch (error) {
     const err = handleError(error);
     res.status(400).json({ err });
