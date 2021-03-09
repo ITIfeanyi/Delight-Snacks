@@ -25,9 +25,11 @@
 
         <div>
           <% if(user === null){%>
-          <h3 class="name"><a href="/login">Sign In</a></h3>
+          <h3 class="Username name">
+            <a href="/login">Sign In</a>
+          </h3>
           <% } else{%>
-          <h3 data-ID="<%= user._id %>" class="name">
+          <h3 data-ID="<%= user._id %>" class="Username name">
             hello, <%= user.name %>
           </h3>
           <% } %>
@@ -56,13 +58,12 @@
                 <li>
                   <a href="#portfolio" class="Portfolio link">Blog</a>
                 </li>
-                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#about-us">about us</a></li>
                 <li><a href="#list">Lists</a></li>
                 <% if(user){%>
                 <li><a href="#signout">Signout</a></li>
                 <% }else{%>
-                <li><a href="#login">Login / Register</a></li>
+                <li><a href="#login">Register</a></li>
                 <% } %>
               </div>
             </div>

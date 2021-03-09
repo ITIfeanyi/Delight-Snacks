@@ -56,13 +56,12 @@
                 <li>
                   <a href="#portfolio" class="Portfolio link">Blog</a>
                 </li>
-                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#about-us">about us</a></li>
                 <li><a href="#list">Lists</a></li>
                 <% if(user){%>
                 <li><a href="/logout">Signout</a></li>
                 <% }else{%>
-                <li><a href="/login">Login / Register</a></li>
+                <li><a href="/register">Register</a></li>
                 <% } %>
               </div>
             </div>
@@ -74,12 +73,36 @@
 <div class="hero_container" id="slider">
  
   <figure>
-    <img src="/img/hero_small1.jpg" alt="pizza" class="hero" />
-    <img src="/img/hero_small2.jpg" alt="pizza" class="hero" />
-    <img src="/img/hero_small3.jpg" alt="pizza" class="hero" />
-    <img src="/img/hero_small4.jpg" alt="pizza" class="hero" />
-    <img src="/img/hero_small5.jpg" alt="pizza" class="hero" />
-  </figure>
+    <picture>
+      <source media="(max-width: 600px)" srcset="/img/hero_small1.jpg">
+      <source media="(min-width: 601px)" srcset="/img/hero_big1.jpg">
+      <img src="/img/hero_big1.jpg" alt="snacks">
+    </picture>
+    <picture>
+      <source media="(max-width: 600px)" srcset="/img/hero_small2.jpg">
+      <source media="(min-width: 601px)" srcset="/img/hero_big2.jpg">
+      <img src="/img/hero_big2.jpg" alt="snacks">
+    </picture>
+
+    <picture>
+      <source media="(max-width: 600px)" srcset="/img/hero_small3.jpg">
+      <source media="(min-width: 601px)" srcset="/img/hero_big3.jpg">
+      <img src="/img/hero_big3.jpg" alt="snacks">
+    </picture>
+
+
+    
+    <picture>
+      <source media="(max-width: 600px)" srcset="/img/hero_small4.jpg">
+      <source media="(min-width: 601px)" srcset="/img/hero_big4.jpg">
+      <img src="/img/hero_big4.jpg" alt="snacks">
+    </picture>
+    
+    <picture>
+      <source media="(max-width: 600px)" srcset="/img/hero_small5.jpg">
+      <source media="(min-width: 601px)" srcset="/img/hero_big5.jpg">
+      <img src="/img/hero_big5.jpg" alt="snacks">
+    </picture>
 </div>
 
 
