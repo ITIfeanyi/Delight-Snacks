@@ -20,6 +20,7 @@ module.exports.register = (req, res) => {
 };
 
 module.exports.register_post = async (req, res) => {
+  res.clearCookie("jwt");
   const { name, email, password } = req.body;
   try {
     const newUser = new User({

@@ -7,6 +7,7 @@ const checkVerification = (req, res, next) => {
   if (token) {
     jwt.verify(token, `${process.env.jwtSecret}`, (err, decodedToken) => {
       if (err) {
+        res.clearCookie("jwt");
         next();
       } else {
         next();
@@ -23,11 +24,11 @@ const getUserName = async (req, res, next) => {
   if (token) {
     jwt.verify(token, `${process.env.jwtSecret}`, async (err, Decodeduser) => {
       if (err) {
-        next();
         res.locals.user = null;
         let snacks = await Snack.find({});
-
         res.locals.snacks = snacks;
+
+        next();
       } else {
         let user = await User.findById(Decodeduser.id);
         let snacks = await Snack.find({});
