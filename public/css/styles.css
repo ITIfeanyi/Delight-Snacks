@@ -13,6 +13,7 @@ input {
 img {
   width: 100px;
 }
+
 a {
   text-decoration: none;
   color: blue;
@@ -264,6 +265,7 @@ div#slider figure {
   margin: 0;
   left: 0;
   text-align: left;
+  font-size: 0;
   animation: 30s slidy infinite;
 }
 @keyframes slidy {
@@ -289,7 +291,7 @@ div#slider figure {
     left: -300%;
   }
   95% {
-    left: -400%;
+    left: -300%;
   }
   100% {
     left: -400%;

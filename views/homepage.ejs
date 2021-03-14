@@ -25,7 +25,7 @@
 
         <div>
           <% if(!user || user === null){%>
-          <h3 class="Username name"><a href="/login">Sign In</a></h3>
+          <h3 class="Username name"><a href="/login">Sign In</a> </h3>
           <% } else{%>
           <h3 data-id="<%= user._id %>" class="Username name">
             hello, <%= user.name %>
