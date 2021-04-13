@@ -11,11 +11,17 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.set("trust proxy", 1);
 app.use(
   cookieSession({
     secret: `${process.env.secret}`,
-    keys: [`${process.env.secret}`],
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secureProxy: true,
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 3,
+    },
   })
 );
 
