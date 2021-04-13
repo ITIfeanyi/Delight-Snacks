@@ -1,109 +1,103 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div class="header_container">
-      <div class="sub_header_container">
-        <nav>
-          <div class="nav_icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-        <h3 class="name h3">Pizza-Hunt</h3>
 
-        <div>
-          <% if(!user || user === null){%>
-          <h3 class="Username name"><a href="/login">Sign In</a></h3>
-          <% } else{%>
-          <h3 data-id="<%= user._id %>" class="Username name">
-            hello, <%= user.name %>
-          </h3>
-          <% } %>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="header_container">
+    <div class="sub_header_container">
+      <nav>
+        <div class="nav_icon">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+      </nav>
+      <h3 class="name h3">Pizza-Hunt</h3>
+
+      <div>
+        <% if(!user || user === null){%>
+        <h3 class="Username name"><a href="/login">Sign In</a></h3>
+        <% } else{%>
+        <h3 data-id="<%= user._id %>" class="Username name">
+          hello, <%= user.name %>
+        </h3>
+        <% } %>
       </div>
     </div>
-    <div class="nav_container_top_active">
-      <div class="nav_container_top">
-        <div class="nav_mask"></div>
-        <div class="close">
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="nav-container">
-          <ul class="nav-item">
-            <div class="nav-list">
-              <div class="search">
-                <input
-                  placeholder="Search snacks"
-                  type="search"
-                  name="search"
-                />
-              </div>
-              <div class="sub_nav-list">
-                <li><a href="#" id="home" class="home link">Home</a></li>
-                <li><a href="#about" class="about link">Order online</a></li>
-                <li>
-                  <a href="#portfolio" class="Portfolio link">Blog</a>
-                </li>
-                <li><a href="#about-us">about us</a></li>
-                <li><a href="#list">Lists</a></li>
-                <% if(user){%>
-                <li><a href="/logout">Signout</a></li>
-                <% }else{%>
-                <li><a href="/register">Register</a></li>
-                <% } %>
-              </div>
+  </div>
+  <div class="nav_container_top_active">
+    <div class="nav_container_top">
+      <div class="nav_mask"></div>
+      <div class="close">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="nav-container">
+        <ul class="nav-item">
+          <div class="nav-list">
+            <div class="search">
+              <input placeholder="Search snacks" type="search" name="search" />
             </div>
-          </ul>
-        </div>
+            <div class="sub_nav-list">
+              <li><a href="#" id="home" class="home link">Home</a></li>
+              <li><a href="#about" class="about link">Order online</a></li>
+              <li>
+                <a href="#portfolio" class="Portfolio link">Blog</a>
+              </li>
+              <li><a href="#about-us">about us</a></li>
+              <li><a href="#list">Lists</a></li>
+              <% if(user){%>
+              <li><a href="/logout">Signout</a></li>
+              <% }else{%>
+              <li><a href="/register">Register</a></li>
+              <% } %>
+            </div>
+          </div>
+        </ul>
       </div>
     </div>
+  </div>
 
-<div class="hero_container" id="slider">
- 
-  <figure>
-    <picture>
-      <source media="(max-width: 600px)" srcset="/img/hero_small1.jpg">
-      <source media="(min-width: 601px)" srcset="/img/hero_big1.jpg">
-      <img src="/img/hero_big1.jpg" alt="snacks">
-    </picture>
-    <picture>
-      <source media="(max-width: 600px)" srcset="/img/hero_small2.jpg">
-      <source media="(min-width: 601px)" srcset="/img/hero_big2.jpg">
-      <img src="/img/hero_big2.jpg" alt="snacks">
-    </picture>
+  <div class="hero_container" id="slider">
 
-    <picture>
-      <source media="(max-width: 600px)" srcset="/img/hero_small3.jpg">
-      <source media="(min-width: 601px)" srcset="/img/hero_big3.jpg">
-      <img src="/img/hero_big3.jpg" alt="snacks">
-    </picture>
+    <figure>
+      <picture>
+        <source media="(max-width: 600px)" srcset="/img/hero_small1.jpg">
+        <source media="(min-width: 601px)" srcset="/img/hero_big1.jpg">
+        <img src="/img/hero_big1.jpg" alt="snacks">
+      </picture>
+      <picture>
+        <source media="(max-width: 600px)" srcset="/img/hero_small2.jpg">
+        <source media="(min-width: 601px)" srcset="/img/hero_big2.jpg">
+        <img src="/img/hero_big2.jpg" alt="snacks">
+      </picture>
+
+      <picture>
+        <source media="(max-width: 600px)" srcset="/img/hero_small3.jpg">
+        <source media="(min-width: 601px)" srcset="/img/hero_big3.jpg">
+        <img src="/img/hero_big3.jpg" alt="snacks">
+      </picture>
 
 
-    
-    <picture>
-      <source media="(max-width: 600px)" srcset="/img/hero_small4.jpg">
-      <source media="(min-width: 601px)" srcset="/img/hero_big4.jpg">
-      <img src="/img/hero_big4.jpg" alt="snacks">
-    </picture>
-    
-    <picture>
-      <source media="(max-width: 600px)" srcset="/img/hero_small5.jpg">
-      <source media="(min-width: 601px)" srcset="/img/hero_big5.jpg">
-      <img src="/img/hero_big5.jpg" alt="snacks">
-    </picture>
-</div>
+
+      <picture>
+        <source media="(max-width: 600px)" srcset="/img/hero_small4.jpg">
+        <source media="(min-width: 601px)" srcset="/img/hero_big4.jpg">
+        <img src="/img/hero_big4.jpg" alt="snacks">
+      </picture>
+
+      <picture>
+        <source media="(max-width: 600px)" srcset="/img/hero_small5.jpg">
+        <source media="(min-width: 601px)" srcset="/img/hero_big5.jpg">
+        <img src="/img/hero_big5.jpg" alt="snacks">
+      </picture>
+  </div>
 
 
   <div class="top__container">
@@ -115,98 +109,94 @@
     <div class="snack_container">
       <% snacks.forEach((snack) => {%>
       <div class="mealContainer">
+        <form data-id="<%= snack._id %>">
           <div class="img_name">
-            <img  src="/img/<%=snack.name%>.jpg" alt="meal" />
+            <img src="/img/<%=snack.name%>.jpg" alt="meal" />
             <p class="product_name"><%= snack.name %></p>
           </div>
-         <div class="itemLeft_price">
-          <p class="product_price">$<%= (snack.price).toFixed(2) %></p>
-          <% if(snack.qty < 1) {%>
-          <p class="product_qty noQty">Out of stock, check later</p>
-          <% }else{%>
-          <p class="product_qty"><%= snack.qty %> left</p>
-          <% } %>
-         </div>
-          <form>
-            <div class="form_subContainer">
-              <div>
-                <select name="qty" <%= user? '': "disabled" %> 
-                  >
+          <div class="itemLeft_price">
+            <p class="product_price">$<%= (snack.price).toFixed(2) %></p>
+            <% if(snack.qty < 1) {%>
+            <p class="product_qty noQty">Out of stock, check later</p>
+            <% }else{%>
+            <p class="product_qty"><%= snack.qty %> left</p>
+            <% } %>
+          </div>
 
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </div>
+          <div class="form_subContainer">
+            <div>
+              <select name="qty" <%= user? '': "disabled" %>>
 
-              <button 
-  
-                <%= user? '': "disabled" %> 
-                name="btn"
-                type="submit"
-                class="ProductBtn"
-              >
-                Order
-              </button>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
             </div>
-            
-          </form>
+
+            <button <%= user? '': "disabled" %> name="btn" type="submit" class="ProductBtn">
+              Order
+            </button>
+          </div>
+
+        </form>
       </div>
       <% }) %>
     </div>
   </div>
-</div>
+  </div>
 
-<%- include('footer') %> 
-<script>
- const nav_icon = document.querySelector(".nav_icon");
-  const nav_mask = document.querySelector(".nav_mask");
-  const close = document.querySelector(".close");
+  <%- include('footer') %>
+  <script>
+    const nav_icon = document.querySelector(".nav_icon");
+    const nav_mask = document.querySelector(".nav_mask");
+    const close = document.querySelector(".close");
 
-  const forms = document.querySelectorAll("form");
-  const orderNotification = document.querySelector(".orderNotification");
-  let name = document.querySelector(".Username").getAttribute('data-id')
-  nav_icon.addEventListener("click", (e) => {
-    e.preventDefault();
-    const nav_container = document.querySelector(".nav_container_top");
-    nav_container.classList.add("active");
-  });
-  close.addEventListener("click", (e) => {
-    e.preventDefault();
-    const nav_container = document.querySelector(".nav_container_top");
-    nav_container.classList.remove("active");
-  });
-  nav_mask.addEventListener("click", (e) => {
-    e.preventDefault();
-    const nav_container = document.querySelector(".nav_container_top");
-    nav_container.classList.remove("active");
-  });
+    const forms = document.querySelectorAll("form");
+    const orderNotification = document.querySelector(".orderNotification");
+    let name = document.querySelector(".Username").getAttribute('data-id')
 
- 
-
-
-  
-  forms.forEach((form) => {
-    form.addEventListener("submit", async (e) => {
+    nav_icon.addEventListener("click", (e) => {
       e.preventDefault();
-      const snack = e.target[1].getAttribute("data-id");
-      const qty =await  form.qty.value;
-
-      const res = await fetch("http://localhost:3000/orders", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ qty: qty, snack: snack, name: name }),
-      });
-      const data = await res.json();
-
-      orderNotification.textContent += `${data.item.qty} ${data.item.name} costing ${data.item.totalprice} has been booked.`;
-      setTimeout(() => {
-    orderNotification.textContent = ''
-  }, 5000 * 4)
+      const nav_container = document.querySelector(".nav_container_top");
+      nav_container.classList.add("active");
     });
-  }); 
-    
-</script>
+    close.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nav_container = document.querySelector(".nav_container_top");
+      nav_container.classList.remove("active");
+    });
+    nav_mask.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nav_container = document.querySelector(".nav_container_top");
+      nav_container.classList.remove("active");
+    });
+
+
+
+
+
+    forms.forEach((form) => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const snack = form.getAttribute("data-id")
+        const qty = form.qty.value;
+        console.log(qty)
+        const res = await fetch("http://localhost:3000/orders", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ qty: qty, snack: snack, name: name }),
+        });
+        const data = await res.json();
+
+        orderNotification.textContent += `${data.item.qty} ${data.item.name} costing ${data.item.totalprice} has been booked.`;
+        setTimeout(() => {
+          orderNotification.textContent = ''
+        }, 5000 * 4)
+      });
+    });
+
+  </script>
 
 </body>
+
 </html>

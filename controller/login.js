@@ -27,7 +27,6 @@ module.exports.login_post = async (req, res) => {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 3,
     });
-    res.header("jwtheader", token);
     res.status(200).json({ user: user._id });
   } catch (error) {
     const errors = handleError(error);
