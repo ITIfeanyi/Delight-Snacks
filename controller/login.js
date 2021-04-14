@@ -23,10 +23,11 @@ module.exports.login_post = async (req, res) => {
     const token = await jwt.sign({ id: user._id }, `${process.env.jwtSecret}`, {
       expiresIn: "3d",
     });
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 3,
-    });
+    // res.cookie("jwt", token, {
+    //   httpOnly: true,
+    //   maxAge: 1000 * 60 * 60 * 24 * 3,
+    // });
+    res.setHeader("Set-Cookie", `jwt=${token}`);
     res.status(200).json({ user: user._id });
   } catch (error) {
     const errors = handleError(error);
